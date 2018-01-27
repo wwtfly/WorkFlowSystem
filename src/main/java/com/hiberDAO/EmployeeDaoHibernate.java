@@ -12,7 +12,7 @@ import java.util.List;
  * @Author: wentao
  * @Date: Created in 18-1-26 下午8:43
  */
-public class EmployeeDAOHibernate extends HibernateDaoSupport implements ImplEmployeeDAO {
+public class EmployeeDaoHibernate extends HibernateDaoSupport implements ImplEmployeeDAO {
     /**
      *
      * @param id

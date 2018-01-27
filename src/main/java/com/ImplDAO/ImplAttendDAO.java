@@ -1,6 +1,7 @@
 package com.ImplDAO;
 
 import com.PO.Attend;
+import com.PO.AttendType;
 import com.PO.Employee;
 
 import java.util.List;
@@ -82,5 +83,5 @@ public interface ImplAttendDAO {
      * @param employee 员工
      * @return 该员工的前三天的非正常打卡
      */
-    List<Attend> findByEmpUnAttend(Employee employee);
+    List<Attend> findByEmpUnAttend(Employee employee, AttendType attendType);
 }
