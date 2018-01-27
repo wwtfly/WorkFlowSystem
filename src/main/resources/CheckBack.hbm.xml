@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--指定Hibernate映射文件的DTD信息-->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <!--查询结果的对象-表映射关系-->
+    <class name="CheckBack" table="check_table">
+        <!--使用只读缓存-->
+        <cache usage="read-only"/>
+        <!--映射主键id的属性-->
+        <id name="id" column="check_id" type="integer">
+            <!--定义主键id的生成策略-->
+            <generator class="indentity"/>
+        </id>
+        <!--映射普通属性-->
+        <property name="reason" column="check_reason" type="string" length="50"/>
+        <property name="result" column="check_result" type="string" length="50"/>
+        <!--映射和Application的关联关系-->
+        <many-to-one name="app" column="app_id" not-null="true" class="Application" unique="true" lazy="false"/>
+        <!--映射和Manager的关联关系-->
+        <many-to-one name="manager" column="mgr_id" class="Manager" not-null="true" lazy="false"/>
+    </class>
+</hibernate-mapping>
