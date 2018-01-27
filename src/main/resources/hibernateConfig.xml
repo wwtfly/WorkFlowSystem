@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN"
+        "http://www.springframework.org/dtd/spring-beans.dtd">
+<!--定义Hibernate的SessionFactory-->
+
+<beans>
+    <!--定义数据源Bean，使用C3P0数据源实现-->
+    <bean id="c3p0DataSource" class="com.mchange.v2.c2p0.ComboPooledDataSource" destroy-method="close">
+        <property name="dirverClass" value="com.mysql.jdbc.Driver"/>
+        <property name="jdbcUrl" value="jdbc:mysal://localhost:3306/web"/>
+        <property name="user" value="root"/>
+        <property name="password" value="211314"/>
+        <property name="maxPoolSize" value="40"/>
+        <property name="minPoolSize" value="1"/>
+        <property name="initialPoolSize" value="1"/>
+        <property name="maxIdleTime" value="20"/>
+    </bean>
+    <!--定义hibernate的SessionFactory-->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="c3p0DataSource"/>
+        <!--配置使用xml文件时间资源映射-->
+        <property name="mappingResources">
+            <list>
+                <value>classpath:Application.hbm.xml</value>
+            </list>
+        </property>
+        <!--hibernate属性-->
+        <property name="hibernateProperties">
+            <!--指定数据库方言、是否自动建表、是否生成sql语句等-->
+            <value>
+                hibernate.dialect=org.hibernate.dialect.MySQLInnoDBDialect
+                hibernate.hbm2ddl.auto=update
+                hibernate.show_sql=true
+                hibernate.format_sql=true
+                hibernate.cache.provider_class=org.hibernate.cache.EhCacheProvider
+            </value>
+        </property>
+    </bean>
+</beans>
