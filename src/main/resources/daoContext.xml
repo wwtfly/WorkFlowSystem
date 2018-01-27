@@ -3,7 +3,7 @@
         "http://www.springframework.org/dtd/spring-beans.dtd">
 <beans>
     <bean id="daoTemplate" abstract="true" lazy-init="true">
-        <property name="sessionFactory-ref" value="sessionFatory"/>
+        <property name="sessionFactory" value="sessionFactory"/>
     </bean>
     <bean id="employeeDao" class="com.hiberDAO.ApplicationDaoHibernate" parent="daoTemplate"/>
 </beans>
