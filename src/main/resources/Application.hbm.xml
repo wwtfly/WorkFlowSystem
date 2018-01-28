@@ -20,6 +20,6 @@
         <!--映射和attend的关联关系-->
         <many-to-one name="attend" column="attend_id" class="Attend" not-null="true" lazy="false"/>
         <!--映射和checkBack的关联关系-->
-        <one-to-one name="check" property-ref="xmlns:app="/>
+        <one-to-one name="check" property-ref="app="/>
     </class>
 </hibernate-mapping>

@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 /**
- * @Descrintion:员工的考勤记录
+ * @Descrintion:员工的考勤记录，包含考勤时间、考勤员工、是否上班以及考勤类别等信息
  * @Author: wentao
  * @Date: Created in 18-1-22 下午10:41
  */
