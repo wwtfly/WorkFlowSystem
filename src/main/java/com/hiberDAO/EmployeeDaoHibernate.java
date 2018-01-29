@@ -2,6 +2,7 @@ package com.hiberDAO;
 
 import com.ImplDAO.ImplEmployeeDAO;
 import com.PO.Employee;
+import com.PO.Manager;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import java.util.List;
@@ -46,6 +47,28 @@ public class EmployeeDaoHibernate extends HibernateDaoSupport implements ImplEmp
     @Override
     public List<Employee> findAll() {
         return (List<Employee>) getHibernateTemplate().find("from employee");
+    }
+
+    /**
+     * 根据用户名和密码查询员工
+     *
+     * @param employee 输入指定用户的名称和密码
+     * @return 符合指定用户名和密码的员工集合
+     */
+    @Override
+    public List<Employee> findByNameAndPass(Employee employee) {
+        return (List<Employee>) getHibernateTemplate().find("from Employee as a where a.name=？" + "and a.password=?",
+                new Object[]{employee.getName(), employee.getPassword()});    }
+
+    /**
+     * 根据用户的名字查找雇员信息
+     *
+     * @param name
+     * @return
+     */
+    @Override
+    public Employee findByName(String name) {
+        return (Employee) getHibernateTemplate().find("from Employee where Employee.name=?", name);
     }
 }
 

@@ -59,4 +59,18 @@ public interface ImplEmployeeDAO {
      * @return 返回的是list集合
      */
     List<Employee> findAll();
+
+    /**
+     * 根据用户名和密码查询员工
+     * @param employee 输入指定用户的名称和密码
+     * @return 符合指定用户名和密码的员工集合
+     */
+    List<Employee> findByNameAndPass(Employee employee);
+
+    /**
+     * 根据用户的名字查找雇员信息
+     * @param name
+     * @return
+     */
+    Employee findByName(String name);
 }

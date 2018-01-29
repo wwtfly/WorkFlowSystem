@@ -76,14 +76,15 @@ public class ManagerDaoHibernate extends HibernateDaoSupport implements ImplMana
 
     /**
      * 根据用户名称和密码查询manager
+     * manager是employee的子类，父类的所有属性子类都有，Manager其实也属于员工，employee的所有属性它应该都有
      *
      * @param manager 输入包含指定用户名、密码的manager
      * @return 返回查询到的Manager对象
      */
     @Override
     public List<Manager> findByNameAndPass(Manager manager) {
-        //return (List<Manager>)getHibernateTemplate().find("from Manager as a where a.name");
-        return null;
+        return (List<Manager>) getHibernateTemplate().find("from Manager as a where a.name=？" + "and a.password=?",
+                new Object[]{manager.getName(), manager.getPassword()});
     }
 
     /**
@@ -94,6 +95,6 @@ public class ManagerDaoHibernate extends HibernateDaoSupport implements ImplMana
      */
     @Override
     public Manager findByName(String name) {
-        return (List<Manager>)getHibernateTemplate().find("from Manager as a where a.name=?");
+        return (Manager) getHibernateTemplate().find("from Manager as a where a.name=?", name);
     }
 }

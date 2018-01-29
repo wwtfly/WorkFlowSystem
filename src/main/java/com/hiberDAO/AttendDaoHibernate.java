@@ -41,7 +41,7 @@ public class AttendDaoHibernate extends HibernateDaoSupport implements ImplAtten
     /**
      * 修改指定的Attend实例
      *
-     * @param attend 需要被删除的Attend实例
+     * @param attend 需要被修改的Attend实例
      */
     @Override
     public void update(Attend attend) {
