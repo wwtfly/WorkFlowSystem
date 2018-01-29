@@ -1,11 +1,13 @@
 package com.PO;
 
+import java.io.Serializable;
+
 /**
  * @Descrintion:员工的考勤申请，包括申请理由、是否被批复以及申请改变的类型等属性。
  * @Author: wentao
  * @Date: Created in 18-1-22 下午10:41
  */
-public class Application {
+public class Application implements Serializable {
     //定义标识属性id
     private Integer id;
     //定义String属性，用于描述申请原因
@@ -47,6 +49,7 @@ public class Application {
 
     /**
      * 获取标识属性ID
+     *
      * @return
      */
     public Integer getId() {
@@ -55,6 +58,7 @@ public class Application {
 
     /**
      * 设置标识属性ID
+     *
      * @param id
      */
     public void setId(Integer id) {
@@ -63,6 +67,7 @@ public class Application {
 
     /**
      * 获取Reason属性
+     *
      * @return
      */
     public String getReason() {
@@ -71,6 +76,7 @@ public class Application {
 
     /**
      * 设置Reason属性
+     *
      * @param reason
      */
     public void setReason(String reason) {
@@ -79,6 +85,7 @@ public class Application {
 
     /**
      * 获取Result属性
+     *
      * @return
      */
     public boolean getResult() {
@@ -87,6 +94,7 @@ public class Application {
 
     /**
      * 设置Result属性
+     *
      * @param result
      */
     public void setResult(boolean result) {
@@ -95,6 +103,7 @@ public class Application {
 
     /**
      * 设置AttendType属性
+     *
      * @return
      */
     public AttendType getType() {
@@ -103,6 +112,7 @@ public class Application {
 
     /**
      * 获取AttendType属性
+     *
      * @param type
      */
     public void setType(AttendType type) {
@@ -111,6 +121,7 @@ public class Application {
 
     /**
      * 获取Attend属性
+     *
      * @return
      */
     public Attend getAttend() {
@@ -119,6 +130,7 @@ public class Application {
 
     /**
      * 设置Attend属性
+     *
      * @param attend
      */
     public void setAttend(Attend attend) {
@@ -127,6 +139,7 @@ public class Application {
 
     /**
      * 获取CheckBack属性
+     *
      * @return
      */
     public CheckBack getCheckBack() {
@@ -135,9 +148,11 @@ public class Application {
 
     /**
      * 设置CheckBack属性
+     *
      * @param checkBack
      */
     public void setCheckBack(CheckBack checkBack) {
         this.checkBack = checkBack;
     }
+
 }

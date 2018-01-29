@@ -1,11 +1,13 @@
 package com.PO;
 
+import java.io.Serializable;
+
 /**
  * @Descrintion: 员工的考勤申请批复信息
  * @Author: wentao
  * @Date: Created in 18-1-22 下午10:42
  */
-public class CheckBack {
+public class CheckBack implements Serializable {
     //定义CheckBack的属性id
     private Integer id;
     //定义CheckBack的reason属性，用于描述批复的原因

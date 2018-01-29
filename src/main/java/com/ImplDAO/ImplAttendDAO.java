@@ -76,7 +76,7 @@ public interface ImplAttendDAO {
      * @param isCome   是否上下班
      * @return 该员工的某天上下班的打卡记录
      */
-    List<Attend> findByEmpAndDutyDayAndCome(Employee employee, String dutyDay, boolean isCome);
+    Attend findByEmpAndDutyDayAndCome(Employee employee, String dutyDay, boolean isCome);
 
     /**
      * 查看员工前三天的非正常打卡

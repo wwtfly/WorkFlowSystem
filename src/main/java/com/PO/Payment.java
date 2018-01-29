@@ -1,11 +1,13 @@
 package com.PO;
 
+import java.io.Serializable;
+
 /**
  * @Descrintion: 对应每月所发的薪水信息，保函发薪的月份、领薪员工以及薪资数等信息。
  * @Author: wentao
  * @Date: Created in 18-1-22 下午10:43
  */
-public class Payment {
+public class Payment implements Serializable {
     //定义标识属性
     private Integer id;
     //定义发薪月份

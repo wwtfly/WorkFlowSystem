@@ -15,11 +15,11 @@
         <!--映射普通属性-->
         <property name="reason" column="app_reason" type="string" length="50"/>
         <property name="result" column="app_result" type="boolean"/>
-        <!--映射和addendtype的关联关系-->
+        <!--映射和addendtype的关联关系,一个申请类型可以对应多个申请，AttendType为1的一端，Application为多的一端-->
         <many-to-one name="type" column="type_id" class="AttendType" not-null="true" lazy="false"/>
-        <!--映射和attend的关联关系-->
+        <!--映射和attend的关联关系，-->
         <many-to-one name="attend" column="attend_id" class="Attend" not-null="true" lazy="false"/>
-        <!--映射和checkBack的关联关系-->
+        <!--映射和checkBack的关联关系，申请Application和批复checkBack是一对一的关系-->
         <one-to-one name="check" property-ref="app="/>
     </class>
 </hibernate-mapping>

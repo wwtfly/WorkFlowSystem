@@ -41,7 +41,7 @@ public class AttendDaoHibernate extends HibernateDaoSupport implements ImplAtten
     /**
      * 修改指定的Attend实例
      *
-     * @param attend 需要被删除的Attend实例
+     * @param attend 需要被修改的Attend实例
      */
     @Override
     public void update(Attend attend) {
@@ -111,12 +111,12 @@ public class AttendDaoHibernate extends HibernateDaoSupport implements ImplAtten
      * @return 该员工的某天上下班的打卡记录
      */
     @Override
-    public List<Attend> findByEmpAndDutyDayAndCome(Employee employee, String dutyDay, boolean isCome) {
+    public Attend findByEmpAndDutyDayAndCome(Employee employee, String dutyDay, boolean isCome) {
         List<Attend> al = findByEmpAndDutyDay(employee, dutyDay);
         if (al != null || al.size() > 1) {
             for (Attend attend : al) {
                 if (attend.getIsCome() == isCome) {
-                    return  (List<Attend>) attend;
+                    return attend;
                 }
             }
         }
